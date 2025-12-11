@@ -1,0 +1,10 @@
+from sqlalchemy import Column, Integer, String, DateTime
+from datetime import datetime
+from .database import Base
+
+class Order(Base):
+    __tablename__ = "orders"
+    id = Column(Integer, primary_key=True, index=True)
+    item = Column(String, nullable=False)
+    quantity = Column(Integer, default=1)
+    created_at = Column(DateTime, default=datetime.utcnow)
